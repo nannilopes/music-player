@@ -5,7 +5,7 @@
     <title>MusicPlayer</title>
     <link rel="stylesheet" href="./styles.css">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,16 +16,18 @@
 <body>
     <div class="content">
         <div class="music">
-            <img src="./assets/music-img.png" alt="Capa do album que contem a musica" />
-
-
+            <img 
+            id="music-album" 
+            src="./assets/music-img.png" 
+            alt="Capa do album que contem a musica"
+             />
 
 
             <div class="music-info">
+                <audio id="music-player"></audio>
+                <h1 id="music-title">Música Exemplo</h1>
 
-
-                <h1>Musica Exemplo</h1>
-                <span>Banda X</span>
+                <span id="music-artist">Banda X</span>
             </div>
 
 
@@ -33,29 +35,32 @@
         </div>
 
         <div class="buttons">
-            <button><ion-icon name="play-back-outline"></ion-icon></button>
-            <button><ion-icon name="play-outline"></ion-icon></button>
-            <button><ion-icon name="play-forward-outline"></ion-icon></button>
+    
+            <button id="playBack"><ion-icon name="play-back-outline"></ion-icon></button>
+            <button id="playPause"><ion-icon name="play-outline"></ion-icon></button>
+            <button id="playForward"><ion-icon name="play-forward-outline"></ion-icon></button>
 
         </div>
 
         <div class="player-footer">
-        
-        <div class="progress">
-            <div class="progress-bg"></div>
-            <input type="range" class="progress-bar" />
-        </div>
 
-        <div class="time">
-            <span>00:00</span>
-            <span>04:30</span>
-        </div>
+            <div class="progress">
+                <div class="progress-bg"></div>
+                <input id="progressBar"type="range" class="progress-bar" />
+            </div>
 
-         </div>
+            <div class="time">
+                <span id="current-time">00:00</span>
+                <span id="end-time">04:30</span>
+            </div>
+
+        </div>
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="./scripts.js"></script>
 
 
 
