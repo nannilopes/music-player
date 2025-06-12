@@ -1,41 +1,42 @@
 const musicPlayer = document.getElementById("music-player")
 const musicAlbum = document.getElementById("music-album")
 const musicTitle = document.getElementById("music-title")
-const musicArtist= document.getElementById("music-artist")
+const musicArtist = document.getElementById("music-artist")
 
 const playBack = document.getElementById("playBack")
 const playForward = document.getElementById("playForward")
-const playPause= document.getElementById("playPause")
+const playButton = document.getElementById("playButton")
+const pauseButton = document.getElementById("pauseButton")
 
-const progressBar= document.getElementById("progressBar")
-const currentTime= document.getElementById("current-time")
-const endTime= document.getElementById("end-time")
+const progressBar = document.getElementById("progressBar")
+const currentTime = document.getElementById("current-time")
+const endTime = document.getElementById("end-time")
 
-const musics=[
+const musics = [
     {
         caminhoDaMusica: "./music/m1.mp3",
-        tituloDaMusica: "Música 01",
-        artista:"J&M",
-        album:"./assets/music-img.png"
+        tituloDaMusica: "Logo Eu",
+        artista: "J&M",
+        album: "./assets/music-img.png"
     },
     {
         caminhoDaMusica: "./music/m2.mp3",
-        tituloDaMusica: "Música 02",
-        artista:"J&M",
-        album:"./assets/music-img.png"
-        
+        tituloDaMusica: "Envolver",
+        artista: "Anitta",
+        album: "./assets/music-img.png"
+
     },
     {
         caminhoDaMusica: "./music/m3.mp3",
-        tituloDaMusica: "Música 03",
-        artista:"J&M",
-        album:"./assets/music-img.png"
-        
+        tituloDaMusica: "Cacos De Vidro",
+        artista: "BK",
+        album: "./assets/music-img.png"
+
     }
 
 ]
 
-function getMusic (){
+function getMusic() {
     musicPlayer.src = musics[0].caminhoDaMusica
     musicAlbum.src = musics[0].album
     musicTitle.innerText = musics[0].tituloDaMusica
@@ -45,6 +46,41 @@ function getMusic (){
 
 getMusic()
 
-playPause.addEventListener("click", function (){
+playButton.addEventListener("click", function () {
+    musicPlayer.play()
+    playButton.style.display= "none"
+    pauseButton.style.display = "inline-block"
+
+})
+
+pauseButton.addEventListener("click", function () {
+    musicPlayer.pause()
+    pauseButton.style.display= "none"
+    playButton.style.display = "inline-block"
+})
+
+
+playForward.addEventListener("click", function () {
+    nextMusic()
     musicPlayer.play()
 })
+
+playBack.addEventListener("click" , function (){
+    previousMusic()
+    musicPlayer.play()
+})
+
+function nextMusic() {
+    musicPlayer.src = musics[1].caminhoDaMusica
+    musicAlbum.src = musics[1].album
+    musicTitle.innerText = musics[1].tituloDaMusica
+    musicArtist.innerText = musics[1].artista
+}
+
+function previousMusic() {
+    musicPlayer.src = musics[0].caminhoDaMusica
+    musicAlbum.src = musics[0].album
+    musicTitle.innerText = musics[0].tituloDaMusica
+    musicArtist.innerText = musics[0].artista
+}
+

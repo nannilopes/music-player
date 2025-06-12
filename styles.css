@@ -80,6 +80,11 @@ body{
     cursor: pointer;
 }
 
+.buttons #pauseButton{
+    display: none;
+
+}
+
 .player-footer{
     width: 100%;
     
