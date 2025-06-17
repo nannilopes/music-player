@@ -36,15 +36,30 @@ const musics = [
 
 ]
 
-function getMusic() {
-    musicPlayer.src = musics[0].caminhoDaMusica
-    musicAlbum.src = musics[0].album
-    musicTitle.innerText = musics[0].tituloDaMusica
-    musicArtist.innerText = musics[0].artista
+var musicaAtual = 0
+
+function getMusic(indexMusic) {
+    musicPlayer.src = musics[indexMusic].caminhoDaMusica
+    musicAlbum.src = musics[indexMusic].album
+    musicTitle.innerText = musics[indexMusic].tituloDaMusica
+    musicArtist.innerText = musics[indexMusic].artista
+
+    musicaAtual = indexMusic
 
 }
 
-getMusic()
+
+getMusic(musicaAtual)
+
+function nextMusic() {
+    getMusic(musicaAtual + 1)
+    musicPlayer.play()
+}
+
+function previousMusic() {
+    getMusic(musicaAtual - 1)
+    musicPlayer.play()
+}
 
 playButton.addEventListener("click", function () {
     musicPlayer.play()
@@ -63,6 +78,7 @@ pauseButton.addEventListener("click", function () {
 playForward.addEventListener("click", function () {
     nextMusic()
     musicPlayer.play()
+
 })
 
 playBack.addEventListener("click" , function (){
@@ -70,17 +86,4 @@ playBack.addEventListener("click" , function (){
     musicPlayer.play()
 })
 
-function nextMusic() {
-    musicPlayer.src = musics[1].caminhoDaMusica
-    musicAlbum.src = musics[1].album
-    musicTitle.innerText = musics[1].tituloDaMusica
-    musicArtist.innerText = musics[1].artista
-}
-
-function previousMusic() {
-    musicPlayer.src = musics[0].caminhoDaMusica
-    musicAlbum.src = musics[0].album
-    musicTitle.innerText = musics[0].tituloDaMusica
-    musicArtist.innerText = musics[0].artista
-}
 
